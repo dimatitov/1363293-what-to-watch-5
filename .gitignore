@@ -2,6 +2,10 @@
 .DS_Store
 Thumbs.db
 
+# Файыл bundle JS
+public/bundle.js
+public.bundle.js.map
+
 # Файлы редактора
 .idea
 *.sublime*
