@@ -1,46 +1,23 @@
-import React, {Fragment} from 'react';
+import React from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const FilmCardScreen = ({films}) => {
+const FilmCardScreen = ({movieImg, title}) => {
   return (
-    <Fragment>
-      <div className="catalog__movies-list">
-        <article className="small-movie-card catalog__movies-card">
-          <div className="small-movie-card__image">
-            <img src="/img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175"/>
-          </div>
-          <h3 className="small-movie-card__title">
-            <a className="small-movie-card__link" href="movie-page.html">Fantastic Beasts: The Crimes of Grindelwald</a>
-          </h3>
-        </article>
+    <article className="small-movie-card catalog__movies-card">
+      <div className="small-movie-card__image">
+        <img src={movieImg} alt={title} width="280" height="175"/>
       </div>
-      <div className="catalog__more">
-        <button className="catalog__button" type="button">Show more</button>
-      </div>
-    </Fragment>
+      <h3 className="small-movie-card__title">
+        <Link className="small-movie-card__link" to={`/films/1312`}>{title}</Link>
+      </h3>
+    </article>
   );
 };
 
 FilmCardScreen.propTypes = {
-  films: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        stillFromTheFilm: PropTypes.string.isRequired,
-        movieTitle: PropTypes.string.isRequired,
-        poster: PropTypes.string.isRequired,
-        filmCover: PropTypes.string.isRequired,
-        genre: PropTypes.string.isRequired,
-        releaseYear: PropTypes.string.isRequired,
-        descriptionFilm: PropTypes.string.isRequired,
-        movieRating: PropTypes.string.isRequired,
-        numberOfReview: PropTypes.string.isRequired,
-        cast: PropTypes.string.isRequired,
-        producer: PropTypes.string.isRequired,
-        duration: PropTypes.string.isRequired,
-        previewVideo: PropTypes.string.isRequired,
-        fullVideo: PropTypes.string.isRequired,
-      })
-  ),
+  title: PropTypes.string.isRequired,
+  movieImg: PropTypes.string.isRequired
 };
 
 export default FilmCardScreen;

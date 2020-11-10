@@ -7,22 +7,23 @@ import MyListScreen from "../MyListScreen/my-list-screen";
 import MovieScreen from "../MovieScreen/movie-screen";
 import AddReviewToMovieScreen from "../AddReviewToMovieScreen/add-review-to-movie-screen";
 import PlayerMovieScreen from "../PlayerMovieScreen/palyer-movie-screen";
+import {filmsPropTypes, reviewPropTypes} from "../../prop-types";
 
 const App = ({genre, date, films, reviews}) => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path={`/`}>
-          <MainScreen genre={genre} date={date}/>
+          <MainScreen genre={genre} date={date} films={films}/>
         </Route>
         <Route exact path={`/login`}>
           <LoginScreen/>
         </Route>
         <Route exact path={`/mylist`}>
-          <MyListScreen/>
+          <MyListScreen films={films}/>
         </Route>
         <Route exact path={`/films/:id`}>
-          <MovieScreen/>
+          <MovieScreen films={films} review={reviews}/>
         </Route>
         <Route exact path={`/films/:id/review`}>
           <AddReviewToMovieScreen/>
@@ -38,38 +39,8 @@ const App = ({genre, date, films, reviews}) => {
 App.propTypes = {
   genre: PropTypes.string.isRequired,
   date: PropTypes.number.isRequired,
-  films: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        stillFromTheFilm: PropTypes.string.isRequired,
-        movieTitle: PropTypes.string.isRequired,
-        poster: PropTypes.string.isRequired,
-        filmCover: PropTypes.string.isRequired,
-        genre: PropTypes.string.isRequired,
-        releaseYear: PropTypes.string.isRequired,
-        descriptionFilm: PropTypes.string.isRequired,
-        movieRating: PropTypes.string.isRequired,
-        numberOfReview: PropTypes.string.isRequired,
-        cast: PropTypes.string.isRequired,
-        producer: PropTypes.string.isRequired,
-        duration: PropTypes.string.isRequired,
-        previewVideo: PropTypes.string.isRequired,
-        fullVideo: PropTypes.string.isRequired,
-      })
-  ),
-  reviews: PropTypes.arrayOf(
-      PropTypes.shape({
-        film: PropTypes.string.isRequired,
-        review: PropTypes.arrayOf(
-            PropTypes.shape({
-              id: PropTypes.number.isRequired,
-              nickName: PropTypes.string.isRequired,
-              textReview: PropTypes.string.isRequired,
-              userRating: PropTypes.string.isRequired,
-            })
-        )
-      })
-  )
+  films: PropTypes.arrayOf(filmsPropTypes).isRequired,
+  reviews: PropTypes.arrayOf(reviewPropTypes).isRequired
 };
 
 export default App;

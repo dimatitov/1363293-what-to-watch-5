@@ -1,11 +1,16 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 
 const PlayerMovieScreen = () => {
+  const history = useHistory();
+  function handleClickToMainScreen() {
+    history.push(`/`);
+  }
   return (
     <div className="player">
       <video src="#" className="player__video" poster="/img/player-poster.jpg"/>
 
-      <button type="button" className="player__exit">Exit</button>
+      <button type="button" className="player__exit" onClick={handleClickToMainScreen}>Exit</button>
 
       <div className="player__controls">
         <div className="player__controls-row">
