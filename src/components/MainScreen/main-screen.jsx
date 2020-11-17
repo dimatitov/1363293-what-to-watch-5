@@ -1,15 +1,15 @@
-import React, {Fragment} from 'react';
-import {useHistory} from 'react-router-dom';
-import PropTypes from 'prop-types';
-import FilmListScreen from "../FilmListScreen/film-list-screen";
-import {filmsPropTypes} from "../../prop-types";
+import React, {Fragment} from "react";
+import {useHistory} from "react-router-dom";
+import PropTypes from "prop-types";
+import FilmList from "../FilmList/film-list";
+import {filmsPropTypes} from "../../propTypes/filmsPropTypes";
 
 const MainScreen = ({genre, date, films}) => {
   const history = useHistory();
-  function handleClickToMyList() {
+  function handleClickOnMyList() {
     history.push(`/mylist`);
   }
-  function handleClickToPlayer() {
+  function handleClickOnPlayer() {
     history.push(`/player/7475`);
   }
   return (
@@ -51,13 +51,13 @@ const MainScreen = ({genre, date, films}) => {
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button" onClick={handleClickToPlayer}>
+                <button className="btn btn--play movie-card__button" type="button" onClick={handleClickOnPlayer}>
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"/>
                   </svg>
                   <span>Play</span>
                 </button>
-                <button className="btn btn--list movie-card__button" type="button" onClick={handleClickToMyList}>
+                <button className="btn btn--list movie-card__button" type="button" onClick={handleClickOnMyList}>
                   <svg viewBox="0 0 19 20" width="19" height="20">
                     <use xlinkHref="#add"/>
                   </svg>
@@ -104,7 +104,7 @@ const MainScreen = ({genre, date, films}) => {
               <a href="#" className="catalog__genres-link">Thrillers</a>
             </li>
           </ul>
-          {<FilmListScreen films={films}/>}
+          <FilmList films={films}/>
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
           </div>

@@ -1,11 +1,18 @@
-import React, {PureComponent} from 'react';
-import {Link} from 'react-router-dom';
+import React, {PureComponent} from "react";
+import {Link} from "react-router-dom";
 
 class AddReviewToMovieScreen extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      textarea: ``,
+      reviewArea: ``,
+      ratingStar: {
+        oneStar: false,
+        secondStar: false,
+        thirdStar: false,
+        fourStar: false,
+        fiveStar: false
+      }
     };
     this.handleSubmitPublicationOfReview = this.handleSubmitPublicationOfReview.bind(this);
   }
@@ -58,7 +65,7 @@ class AddReviewToMovieScreen extends PureComponent {
           <form action="#" className="add-review__form" onSubmit={this.handleSubmitPublicationOfReview}>
             <div className="rating">
               <div className="rating__stars">
-                <input className="rating__input" id="star-1" type="radio" name="rating" value="1"/>
+                <input className="rating__input" id="star-1" type="radio" name="rating" value="1" />
                 <label className="rating__label" htmlFor="star-1">Rating 1</label>
 
                 <input className="rating__input" id="star-2" type="radio" name="rating" value="2"/>
@@ -81,7 +88,7 @@ class AddReviewToMovieScreen extends PureComponent {
                 name="review-text"
                 id="review-text"
                 placeholder="Review text"
-                onChange={(e) => this.setState({textarea: e.target.value})}
+                onChange={(e) => this.setState({reviewArea: e.target.value})}
               />
               <div className="add-review__submit">
                 <button className="add-review__btn" type="submit">Post</button>

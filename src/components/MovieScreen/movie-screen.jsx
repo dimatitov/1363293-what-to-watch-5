@@ -1,14 +1,15 @@
-import React, {Fragment} from 'react';
-import PropTypes from 'prop-types';
-import {filmsPropTypes, reviewPropTypes} from "../../prop-types";
+import React, {Fragment} from "react";
+import PropTypes from "prop-types";
+import {filmsPropTypes} from "../../propTypes/filmsPropTypes";
+import {reviewPropTypes} from "../../propTypes/reviewPropTypes";
 import {useHistory, Link} from "react-router-dom";
 
 const MovieScreen = () => {
   const history = useHistory();
-  function handleClickToMyList() {
+  function handlerClickMyList() {
     history.push(`/mylist`);
   }
-  function handleClickToPlayer() {
+  function handlerClickPlayer() {
     history.push(`/player/7475`);
   }
   return (
@@ -46,13 +47,13 @@ const MovieScreen = () => {
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button" onClick={handleClickToPlayer}>
+                <button className="btn btn--play movie-card__button" type="button" onClick={handlerClickPlayer}>
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"/>
                   </svg>
                   <span>Play</span>
                 </button>
-                <button className="btn btn--list movie-card__button" type="button" onClick={handleClickToMyList}>
+                <button className="btn btn--list movie-card__button" type="button" onClick={handlerClickMyList}>
                   <svg viewBox="0 0 19 20" width="19" height="20">
                     <use xlinkHref="#add"/>
                   </svg>

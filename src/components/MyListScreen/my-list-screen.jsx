@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {filmsPropTypes} from "../../prop-types";
-import FilmListScreen from "../FilmListScreen/film-list-screen";
+import React from "react";
+import PropTypes from "prop-types";
+import {filmsPropTypes} from "../../propTypes/filmsPropTypes";
+import FilmList from "../FilmList/film-list";
 import films from "../../mocks/films";
 
 const MyListScreen = () => {
@@ -27,7 +27,7 @@ const MyListScreen = () => {
 
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
-        {<FilmListScreen films={films} />}
+        <FilmList films={films} />
       </section>
 
       <footer className="page-footer">

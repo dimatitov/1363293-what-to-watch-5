@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import MainScreen from "../MainScreen/main-screen";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import LoginScreen from "../LoginScreen/login-screen";
@@ -7,7 +7,8 @@ import MyListScreen from "../MyListScreen/my-list-screen";
 import MovieScreen from "../MovieScreen/movie-screen";
 import AddReviewToMovieScreen from "../AddReviewToMovieScreen/add-review-to-movie-screen";
 import PlayerMovieScreen from "../PlayerMovieScreen/palyer-movie-screen";
-import {filmsPropTypes, reviewPropTypes} from "../../prop-types";
+import {filmsPropTypes} from "../../propTypes/filmsPropTypes";
+import {reviewPropTypes} from "../../propTypes/reviewPropTypes";
 
 const App = ({genre, date, films, reviews}) => {
   return (
